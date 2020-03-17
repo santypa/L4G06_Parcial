@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="icon"href="ico/a.jpg">
+    <meta charset="UTF-8">
+   <link rel="stylesheet" href="css/style.css"> 
+    <title>login</title>
+</head>
+<body>
+ 
+ <div class="login-box" >
+
+     
+ <img src="img/v.png" class="avatar" alt="Avatar Image"> 
+     <h1>USUARIOS</h1>
+     
+     <form action="modificar_usuario.php" method="post">
+
+
+
+     <?php
+
+
+    //include('includes/db.php');// para iniciar la base de datos.
+    //$id=$_REQUEST["id"];
+    //$sql="delete from usuarios where id='$id'";
+
+
+
+$result=DB::query($sql);
+
+
+      if(isset($_REQUEST['id']) == false){
+            
+        echo " Es aaaaaaaaaaaaaaaaaaaaaaaaa";       
+        die;
+        }
+
+            $id=$_REQUEST['id'];
+           
+            
+            
+            $sql="SELECT * FROM usuarios WHERE id='$id'";
+            $result= DB::query($sql);
+
+            $mostrar= mysqli_fetch_array($result);//generar un array de todos los datos de la tabla
+            
+           // $mostrar= mysqli_fetch_object($result); // genera un solo objeto
+           
+           
+          
+
+    ?>
+            <label for="nombre" >Nombre </label> 
+            <input type="text" name="nombre" required placeholder="nombre" value="<?php echo $mostrar['nombre'];?>">
+            
+            <label for="apellido">Apellido</label> 
+            <input type="text" name="apellido" required placeholder="apellido" value="<?php echo $mostrar['apellido'];?>">
+
+            <label for="email">Email</label> 
+            <input type="text" name="email" required placeholder="email" value="<?php echo $mostrar['email'];?>">
+
+            <label for="password">Password</label> 
+            <input type="password" name="password" required placeholder="password" value="<?php echo $mostrar['password'];?>">
+
+            <label for="estado">estado</label> 
+
+            <select fro="estado" name="estado">
+                <option value="activo">Activo</option>
+                <option value="inactivo">Inactivo</option>
+            </select>
+          
+          
+            <input type="submit" value="Guardar">
+          
+            <a href="index.php"><img src="img/bt4.png"  alt="logo"></a>
+         
+    </form>
+     
+ </div>
+ 
+
+    
+</body>
+</html>
+
+
+
+ //<input type="button" onclick="location.href='index.php';" value=" Ver Registros "/>
+
+
+
+
+
+
+
+
+
+
+ if($nombre=="" || $apellido=="" || $email=="" || $password==""){
+
+}else{
+if(isset($id) == false){
+   //header ('Location: crear.php');
+   
+    $sql = "INSERT into personas(nombre,apellido,email,passwod,estado)values('$nombre','$apellido','$email','$password','$estado')"; 
+}
+else{
+    //header ('Location: index.php');
+    $sql = "UPDATE personas set nombre='$nombre',apellido='$apellido',email='$email',password='$password',estado='$estado' WHERE id=$id";
+
+}
+    
+}
