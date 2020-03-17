@@ -62,9 +62,9 @@
        ?>
       
        
-       <td> <a href="estado.php?id=<?php echo $mostrar['id'] ?>"> <?php echo $esta  ?>  </a>
+       <td> <a href="estado.php?id=<?php echo $mostrar['id'] ?>"> <?php echo $esta?>    </a>
 
-            <a href="modificar.php?id=<?php echo $mostrar['id'] ?>">Modificar</a> 
+            <a href="modificar.php?id=<?php echo $mostrar['id'] ?>">  Modificar  </a> 
             
       </td>
        
@@ -74,13 +74,12 @@
       }
             
      ?>
-  
       </table>
 
         </div>
       <a href="guardar_usuario.php" ><img src="img/bt3.png"   alt="logo"></a>
       
-  
+    
 
 
 </div>

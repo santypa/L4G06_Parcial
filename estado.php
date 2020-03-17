@@ -8,7 +8,12 @@ if(isset($_GET['id']) == false){
     die;
 }
 
+
+//$estado=$_GET['estado'];
+
 $id = $_GET['id'];
+
+
 $sql = "SELECT * from usuarios where id = '$id'";
 $usuario = DB::query($sql);
 
@@ -22,25 +27,28 @@ if(!$usuario){//$persona == false){
 
 
 
-include('includes/db.php');
+//Datos de conexion server
+ 
+    $estado= $usuario->estado;
+    echo $id;
 
-$estado= $_POST["estado"];
+    if($estado!="inactivo"){
+       
+        $sql="Update usuarios Set estado='activo', estado='inactivo' where id='$id'";
+    }
+    else{
+        $sql="Update usuarios Set estado='inactivo', estado='activo'  where id='$id'";
+    }
 
-if($estad=="inactivo"){
-    $sql="Update usuarios Set estado='inactivo', estado='activo'  where id='$id'";
-    $c=1;
-}
-if($c==0){
-    $sql="Update usuarios Set estado='activo', estado='inactivo' where id='$id'";
-}
+      if(DB::query($sql))  {//$con->query($query)==true es lo mismo o se puede omitir
+          echo "usuario guardada correctamente";
+      }
+      else{
+          echo"No se logro guardar el usuario".$conexion->error;
+      }
+    
+    
+      
 
-$c=0;
-
-$result=DB::query($sql);
-
-
-
-//header ('location: index.php');
-
-
+    header ('Location: index.php'); //para q limpie y guarde los datos
 ?>

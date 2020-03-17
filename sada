@@ -112,3 +112,30 @@ else{
 }
     
 }
+
+
+
+
+<?php
+
+
+$estado= $_POST["estado"];
+
+if($estad=="inactivo"){
+    $sql="Update usuarios Set estado='inactivo', estado='activo'  where id='$id'";
+    $c=1;
+}
+if($c==0){
+    $sql="Update usuarios Set estado='activo', estado='inactivo' where id='$id'";
+}
+
+$c=0;
+
+$result=DB::query($sql);
+
+
+
+//header ('location: index.php');
+
+
+?>

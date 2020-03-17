@@ -19,9 +19,9 @@ include ('includes/db.php');
     $password=md5($password);
        //error por si sola
 
-    echo "la informacion enviada es: Nombre : $nombre email: $email";  
+    //echo "la informacion enviada es: Nombre : $nombre email: $email";  
     
-    echo $id;
+    //echo $id;
 
     $sql = "UPDATE usuarios set nombre='$nombre',apellido='$apellido',email='$email',password='$password',estado='$estado' WHERE id=$id";
 
