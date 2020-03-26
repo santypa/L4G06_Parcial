@@ -7,8 +7,6 @@ if(isset($_GET['id']) == false){
     echo "es necesario enviar un id";
     die;
 }
-
-
 //$estado=$_GET['estado'];
 
 $id = $_GET['id'];
@@ -24,11 +22,7 @@ if(!$usuario){//$persona == false){
     echo "el usuario no existe";
     die;
 }
-
-
-
 //Datos de conexion server
- 
     $estado= $usuario->estado;
     echo $id;
 
@@ -47,8 +41,5 @@ if(!$usuario){//$persona == false){
           echo"No se logro guardar el usuario".$conexion->error;
       }
     
-    
-      
-
     header ('Location: index.php'); //para q limpie y guarde los datos
 ?>

@@ -1,2 +1,3 @@
-Update usuarios Set estado='activo', estado='inactivo'  WHERE id=
-
+SELECT * FROM usuarios 
+	
+	PASSWORD=MD5("1234");
